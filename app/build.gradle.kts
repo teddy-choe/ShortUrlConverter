@@ -66,4 +66,9 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+    // Ktor
+    implementation("io.ktor:ktor-client-core:2.3.3")
+    implementation("io.ktor:ktor-client-cio:2.3.3")
+
 }
