@@ -3,13 +3,10 @@ package com.teddy.shorturlconverter
 import com.teddy.shorturlconverter.model.UrlResponse
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
-import io.ktor.client.engine.cio.CIO
 import io.ktor.client.engine.okhttp.OkHttp
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.request.get
 import io.ktor.client.request.headers
-import io.ktor.client.request.url
-import io.ktor.client.statement.HttpResponse
 import io.ktor.http.ContentType
 import io.ktor.http.contentType
 import io.ktor.serialization.kotlinx.json.json
@@ -34,8 +31,8 @@ class ConvertRepository {
             contentType(ContentType.Application.Json)
 
             headers {
-                append("X-NCP-APIGW-API-KEY-ID", "063jcm79l3")
-                append("X-NCP-APIGW-API-KEY", "Ywwv06t1nlWxWruWCPVjSkY6tN5hB4iAXOcQbavo")
+                append("X-NCP-APIGW-API-KEY-ID", CLIENT_ID)
+                append("X-NCP-APIGW-API-KEY", CLIENT_SECRET)
             }
         }
 
