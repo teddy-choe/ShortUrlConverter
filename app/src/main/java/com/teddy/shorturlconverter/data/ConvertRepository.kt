@@ -1,5 +1,7 @@
-package com.teddy.shorturlconverter
+package com.teddy.shorturlconverter.data
 
+import com.teddy.shorturlconverter.CLIENT_ID
+import com.teddy.shorturlconverter.CLIENT_SECRET
 import com.teddy.shorturlconverter.model.UrlResponse
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body

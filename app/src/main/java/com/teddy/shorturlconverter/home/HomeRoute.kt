@@ -1,4 +1,4 @@
-package com.teddy.shorturlconverter
+package com.teddy.shorturlconverter.home
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Button
