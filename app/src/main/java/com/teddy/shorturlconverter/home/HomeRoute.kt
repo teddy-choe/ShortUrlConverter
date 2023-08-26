@@ -51,7 +51,10 @@ fun HomeScreen(
 
         Button(
             onClick = { getShortUrl(text) },
-            modifier = Modifier.fillMaxWidth().padding(top = 12.dp)
+            enabled = text.isNotEmpty(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 12.dp)
         ) {
             Text(text = "Convert")
         }
@@ -59,6 +62,10 @@ fun HomeScreen(
         when (uiState) {
             is HomeViewModel.UiState.Success -> {
                 Text(text = uiState.url)
+            }
+
+            is HomeViewModel.UiState.Error -> {
+                Text(text = "${uiState.code} / ${uiState.message}")
             }
 
             else -> {}

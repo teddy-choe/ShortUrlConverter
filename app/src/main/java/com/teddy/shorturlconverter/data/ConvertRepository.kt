@@ -2,6 +2,8 @@ package com.teddy.shorturlconverter.data
 
 import com.teddy.shorturlconverter.CLIENT_ID
 import com.teddy.shorturlconverter.CLIENT_SECRET
+import com.teddy.shorturlconverter.model.Error
+import com.teddy.shorturlconverter.model.Response
 import com.teddy.shorturlconverter.model.UrlResponse
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
@@ -24,7 +26,7 @@ class ConvertRepository {
         }
     }
 
-    suspend fun getShortUrl(url: String): UrlResponse {
+    suspend fun getShortUrl(url: String): Response {
         val response = client.get("https://naveropenapi.apigw.ntruss.com/util/v1/shorturl") {
             url {
                 parameters.append("url", url)
@@ -38,6 +40,10 @@ class ConvertRepository {
             }
         }
 
-        return response.body()
+        if (response.status.value in 200..299) {
+            return response.body<UrlResponse>()
+        } else {
+            return response.body<Error>()
+        }
     }
 }
